@@ -5,7 +5,6 @@ import green.application.service.RegisterService;
 import green.domain.model.User;
 import green.presentation.dto.UserReq;
 import jakarta.validation.Valid;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
