@@ -9,7 +9,7 @@ import lombok.Getter;
 @Getter
 @Builder
 
-public class UserReq {
+public class UserResReq {
 
     @NotBlank(message = "이름 필수")
     private String name;
@@ -23,7 +23,7 @@ public class UserReq {
     @NotBlank(message = "비밀번호 필수")
     private String confirmPassword;
 
-    @NotBlank(message = "비밀번호 필수")
+    @NotBlank(message = "역할 필수")
     private String role;
 
 
@@ -32,7 +32,6 @@ public class UserReq {
                 .userName(name)
                 .userId(id)
                 .password(password)
-                .confirmPassword(confirmPassword)
                 .role(role)
                 .build();
     }

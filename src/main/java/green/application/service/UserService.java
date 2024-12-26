@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class RegisterService {
+public class UserService {
     private final UserRepository userRepository;
 
     public User registerUser(User user) {
@@ -16,4 +16,16 @@ public class RegisterService {
         return User.from(userEntity);
 
     }
+    public User loginUser(User user) {
+
+        User info = User.from(userRepository.findByUserId((user.getUserId()))
+                .orElseThrow(() -> new IllegalArgumentException("User not found")));
+
+        if(!info.getPassword().equals(user.getPassword())) {
+        return null;
+        }
+            return info;
+    }
+
+
 }

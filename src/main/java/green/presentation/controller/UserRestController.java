@@ -1,9 +1,9 @@
 package green.presentation.controller;
 
-import green.application.service.LoginService;
-import green.application.service.RegisterService;
+import green.application.service.UserService;
 import green.domain.model.User;
-import green.presentation.dto.UserReq;
+import green.presentation.dto.UserLoginReq;
+import green.presentation.dto.UserResReq;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,10 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/api")
 public class UserRestController {
-    private final RegisterService registerService;
+    private final UserService userService;
 
     @PostMapping("/register")
-    public User register(@RequestBody @Valid UserReq user) {
-        return registerService.registerUser(user.toUser());
+    public User register(@RequestBody @Valid UserResReq user) {
+        return userService.registerUser(user.toUser());
+    }
+    @PostMapping("/login")
+    public User login(@RequestBody @Valid UserLoginReq user) {
+        return userService.loginUser(user.toUser());
     }
 }
