@@ -1,6 +1,6 @@
-package green.domain.model;
+package green.study.domain.model;
 
-import green.domain.entity.UserEntity;
+import green.study.domain.entity.UserEntity;
 import lombok.Builder;
 import lombok.Getter;
 
