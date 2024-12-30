@@ -1,7 +1,6 @@
-package green.infrastructure.repository;
+package green.study.infrastructure.repository;
 
-import green.domain.entity.UserEntity;
-import green.domain.model.User;
+import green.study.domain.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
