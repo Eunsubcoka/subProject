@@ -38,23 +38,22 @@ public class JwtUtil {
      * 만료시간에 대한 서비스 확장성을 위한 오버로딩 메서드 생성
      * @param loginUser
      * @return
-     */
-    public String createAccessToken(final User loginUser) {
-        return this.createAccessToken(loginUser, EXPIRATION_TIME_MS);
-    }
+     **/
 
-    public String createAccessToken(final User loginUser, final Long expirationTime) {
+    public String createAccessToken(final User loginUser) {
         String token = Jwts.builder()
                 .claim(USER_NO_KEY_NAME, loginUser.getUserNo())
                 .claim(USER_ID_KEY_NAME, loginUser.getUserId())
                 .claim(USER_TYPE_KEY_NAME, loginUser.getRole())
                 .issuedAt(new Date())
-                .expiration(new Date(System.currentTimeMillis() + expirationTime))
+                .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME_MS))
                 .signWith(key)
                 .compact();
         log.debug("created token : {} ", token);
         return token;
     }
+
+
 
     public User getLoginUserFromAccessToken(final String accessToken) {
         Claims claims = getClaims(accessToken);

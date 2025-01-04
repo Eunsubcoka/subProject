@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="fragment-css">
+    <link rel="stylesheet" href="/css/fragment/header.css" >
+</div>
+<div th:fragment="fragment-header">
+    <header>
+        <h2>Web Study</h2>
+        <nav>
+            <a href="#">강의</a>
+            <a href="#">로드맵</a>
+            <a href="#">멘토링</a>
+            <a href="#">커뮤니티</a>
+        </nav>
+
+        <button th:if="${member.role == null}" class="login" action="/login">로그인</button>
+        <div th:if="${member.role != null}">
+            <div class="unique-dropdown">
+                <button class="unique-dropdown-btn" th:text="${member.userId}">님</button>
+                <div class="unique-dropdown-content">
+                    <ul>
+                        <li>쿠폰: 0개</li>
+                        <li>포인트: 0잎</li>
+                    </ul>
+                    <hr />
+                    <ul>
+                        <li><a href="/my/courses">내 학습</a></li>
+                        <li><a href="/enroll/courses">이어서 학습하기</a></li>
+                        <li><a href="#">대시보드</a></li>
+                        <li><a href="#">구매 내역</a></li>
+                        <li th:if="${member.role == 'teacher'}"><a>강의 등록</a><li>
+                        <li><button id="logoutBtn">로그아웃</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+
+</div>
+</html>

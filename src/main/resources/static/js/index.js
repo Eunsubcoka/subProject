@@ -9,3 +9,12 @@ document.querySelectorAll('.category-item').forEach(item => {
 document.querySelector('.banner button').addEventListener('click', function() {
     window.location.href = '/';
 });
+
+document.querySelector('.unique-dropdown-btn').addEventListener('click', function () {
+    const dropdownContent = document.querySelector('.unique-dropdown-content');
+    if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+    } else {
+        dropdownContent.style.display = 'block';
+    }
+});

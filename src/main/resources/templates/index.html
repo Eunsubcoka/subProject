@@ -4,26 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inflearn Clone</title>
-<link rel="stylesheet" href="/css/index.css">
+    <div th:insert="/fragment/header.html::fragment-css"></div>
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-
-<header>
-    <h2>Web Study</h2>
-        <nav>
-            <a href="#">강의</a>
-            <a href="#">로드맵</a>
-            <a href="#">멘토링</a>
-            <a href="#">커뮤니티</a>
-        </nav>
-
-        <button th:if="${member.type == null}" class="login" action="/login">로그인</button>
-        <form th:if="${member.type != null}" th:action="@{/mypage/{userId}(userId=${member.id})}" method="GET">
-            <button type="submit" class="login">[[${member.memberId}]] 님</button>
-        </form>
-
-
-</header>
+<div th:insert="/fragment/header.html::fragment-header"></div>
 
 <div class="search-bar">
     <input type="text" placeholder="배우고 싶은 지식을 입력해보세요.">
@@ -99,7 +84,6 @@
     </div>
 
 </div>
-
 <footer>
     Inflearn Clone - Created with ❤️
 </footer>

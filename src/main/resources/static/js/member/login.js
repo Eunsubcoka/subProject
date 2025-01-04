@@ -28,21 +28,14 @@ signupForm.addEventListener('submit', (event) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(userData), // 회원가입 데이터를 JSON으로 전송
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // 회원가입 성공
-                    alert('로그인이 완료되었습니다!');
-                    location.href = "/"; // 로그인 페이지로 리디렉션
-                } else {
-                    // 서버에서 실패 메시지 처리
-                    alert('로그인에 실패했습니다. 다시 시도해주세요.');
-                }
-            })
-            .catch(error => {
-                console.error('로그인 오류:', error);
-                alert('서버 오류가 발생했습니다. 나중에 다시 시도해주세요.');
-            });
+            success: function() {
+                window.location.href = "/";
+            },
+            error: function(err) {
+                console.error("에러 발생:", err);
+                alert("로그인에 실패했습니다.");
+            }
+        });
+
 
 });

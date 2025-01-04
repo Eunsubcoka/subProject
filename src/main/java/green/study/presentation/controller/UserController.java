@@ -1,21 +1,11 @@
 package green.study.presentation.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 
-
+@RequiredArgsConstructor
 @Controller
 public class UserController {
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @GetMapping("/signup")
-    public String signup() {
-        return "member/signup";
-    }
-    @GetMapping("/login")
-    public String login() {
-        return "member/login";
-    }
 }

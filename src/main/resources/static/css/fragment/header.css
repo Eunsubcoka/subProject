@@ -1,0 +1,79 @@
+header {
+    background-color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+header img {
+    height: 40px;
+}
+nav {
+    display: flex;
+    gap: 15px;
+}
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Dropdown container */
+.unique-dropdown {
+    position: relative;
+    display: inline-block;
+
+}
+
+/* Dropdown button */
+.unique-dropdown-btn {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Dropdown content */
+.unique-dropdown-content {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    right: 0px;
+}
+
+/* Styling for list items */
+.unique-dropdown-content ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.unique-dropdown-content li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.unique-dropdown-content li a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Add hover effect */
+.unique-dropdown-content li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown when button is clicked */
+.unique-dropdown:hover .unique-dropdown-content {
+    display: block;
+}
+

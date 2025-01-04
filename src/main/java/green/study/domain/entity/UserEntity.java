@@ -6,8 +6,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
-@Table(name = "Member")
+@Table(name = "MEMBER")
 @Builder
 @Getter
 @NoArgsConstructor
@@ -30,6 +32,15 @@ public class UserEntity {
 
     @Column(nullable = false)
     private String role;
+
+
+    // 학생이 수강 신청한 강의 목록
+//    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+//    private List<EnrollmentEntity> enrollments;
+//
+//    // 강사가 등록한 강의 목록
+//    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+//    private List<CourseEntity> courses;
 
 
 
