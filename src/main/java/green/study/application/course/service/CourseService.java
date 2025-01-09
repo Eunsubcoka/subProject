@@ -1,7 +1,6 @@
-package green.study.application.service;
+package green.study.application.course.service;
 
-import green.study.domain.entity.CourseEntity;
-import green.study.domain.model.Course;
+import green.study.domain.course.model.Course;
 import green.study.infrastructure.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

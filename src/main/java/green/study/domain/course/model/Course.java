@@ -1,6 +1,6 @@
-package green.study.domain.model;
+package green.study.domain.course.model;
 
-import green.study.domain.entity.CourseEntity;
+import green.study.domain.course.entity.CourseEntity;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -14,7 +14,7 @@ public class Course {
 
     private String description;
 
-    private String teacherId;
+    private Long userNo;
 
     private int price;
 
@@ -23,7 +23,7 @@ public class Course {
                 .price(price)
                 .description(description)
                 .title(title)
-                .teacherId(teacherId).build();
+                .userNo(userNo).build();
     }
 
 }

@@ -1,9 +1,7 @@
-package green.study.domain.entity;
+package green.study.domain.course.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
 
 @Entity
 @Table(name = "course")
@@ -28,13 +26,8 @@ public class CourseEntity {
     private int price;
 
     @Column(nullable = false)
-    private String teacherId;
+    private Long userNo;
 
-//    // 강사
-//    @ManyToOne
-//    @JoinColumn(name = "teacher", nullable = false)
-//    private UserEntity teacher; // User.role == TEACHER
+    
 
-//    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-//    private List<EnrollmentEntity> enrollments;
 }

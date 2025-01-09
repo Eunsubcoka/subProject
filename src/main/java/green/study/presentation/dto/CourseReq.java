@@ -1,11 +1,10 @@
 package green.study.presentation.dto;
 
-import green.study.domain.model.Course;
+import green.study.domain.course.model.Course;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
 public class CourseReq {
@@ -16,8 +15,8 @@ public class CourseReq {
         @NotBlank(message = "강의 이름")
         private String title;
 
-        @NotBlank(message = "강사 아이디")
-        private String teacherId;
+        @NotBlank(message = "유저 번호")
+        private int userNo;
 
         @NotBlank(message = "강의 설명")
         private String description;
@@ -27,7 +26,7 @@ public class CourseReq {
 
         public Course toCourse(){
             return Course.builder()
-                    .teacherId(teacherId)
+                    .userNo(userNo)
                     .title(title)
                     .description(description)
                     .price(price)
