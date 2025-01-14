@@ -1,14 +1,25 @@
 package green.study.domain.course.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
+@Entity
+@Table(name = "thumbnail")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ThumbnailEntity {
 
     @Id
-    @SequenceGenerator(name = "course_seq",sequenceName = "course_seq")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "course_seq")
+    @SequenceGenerator(name = "thumbnail_seq",sequenceName = "thumbnail_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "thumbnail_seq")
     private Long thumbnailNo;
 
     @Column(nullable = false)
@@ -21,8 +32,8 @@ public class ThumbnailEntity {
     private String convertName;
 
     @Column(nullable = false)
-    private Date uploadTime;
+    private LocalDateTime uploadTime;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Date deleteTime;
 }
