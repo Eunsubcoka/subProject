@@ -1,0 +1,81 @@
+/* 기본 스타일 설정 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.main-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.main-header h1 {
+    font-size: 28px;
+    color: #343a40;
+    margin-bottom: 10px;
+}
+
+.tabs {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 0;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.tabs li {
+    margin: 0 15px;
+}
+
+.tabs li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #6c757d;
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.3s ease;
+}
+
+.tabs li.active a {
+    color: #495057;
+    font-weight: bold;
+    background-color: #fff;
+    border: 2px solid #e9ecef;
+    border-bottom: none;
+}
+
+.tabs li a:hover {
+    color: #007bff;
+    border: 2px solid #e9ecef;
+    border-bottom: none;
+    background-color: #f8f9fa;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 768px) {
+    main {
+        width: 95%;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tabs li {
+        margin: 5px 0;
+    }
+}

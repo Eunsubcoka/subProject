@@ -1,7 +1,7 @@
 package green.study.presentation.controller;
 
-import green.study.application.service.CourseService;
-import green.study.application.service.UserService;
+import green.study.application.course.service.CourseService;
+import green.study.application.user.service.UserService;
 import green.study.infrastructure.util.CookieUtil;
 import green.study.presentation.dto.CourseReq;
 import green.study.presentation.dto.UserReq;
@@ -17,6 +17,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
 
 @org.springframework.web.bind.annotation.RestController
 @RequiredArgsConstructor
@@ -37,9 +40,11 @@ public class RestController {
         model.addAttribute("member", member);
         response.addCookie(CookieUtil.createJwtCookie(member.getToken()));
     }
-    @PostMapping("/courses")
-    public void courses(@RequestBody @Valid CourseReq.create courseReq){
-        courseService.create(courseReq.toCourse());
+    @PostMapping("/course")
+    public void courses(@RequestParam @Valid CourseReq.create courseReq,
+                        @RequestParam(value = "thumbnail", required = false)MultipartFile file){
+        courseService.create(courseReq.toCourse(),file);
+
     }
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
