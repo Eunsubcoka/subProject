@@ -29,7 +29,7 @@ signupForm.addEventListener('submit', (event) => {
             },
             body: JSON.stringify(userData), // 회원가입 데이터를 JSON으로 전송
             success: function() {
-                window.location.href = "/";
+                location.href = "/";
             },
             error: function(err) {
                 console.error("에러 발생:", err);

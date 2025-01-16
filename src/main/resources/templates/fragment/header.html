@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="fragment-css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="/css/fragment/header.css" >
+    <script src="/js/fragment/header.js"></script>
+
 </div>
 <div th:fragment="fragment-header">
     <header>
@@ -24,7 +27,7 @@
                     </ul>
                     <hr />
                     <ul>
-                        <li><a href="/my/courses">내 학습</a></li>
+                        <li><a href="/myPage">내 학습</a></li>
                         <li><a href="/enroll/courses">이어서 학습하기</a></li>
                         <li><a href="#">대시보드</a></li>
                         <li><a href="#">구매 내역</a></li>

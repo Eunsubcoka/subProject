@@ -3,34 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>내 학습</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <div th:insert="/fragment/header.html::fragment-css"></div>
+    <link rel="stylesheet" href="/css/member/myPage.css">
+
+
 </head>
 <body>
-<header>
-    <div class="header-container">
-        <a href="/" class="logo">Inflearn</a>
-        <nav>
-            <ul class="menu">
-                <li><a href="/dashboard">대시보드</a></li>
-                <li><a href="/notifications">알림</a></li>
-                <li><a href="/mypage">내 학습</a></li>
-                <li><a href="/cart">장바구니</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<div th:insert="/fragment/header.html::fragment-header"></div>
 
-<div class="sidebar">
-    <ul class="sidebar-menu">
-        <li><a href="/dashboard">대시보드</a></li>
-        <li><a href="/notifications">알림</a></li>
-        <li class="active"><a href="/mypage">내 학습</a></li>
-        <li><a href="/roadmap">내 로드맵</a></li>
-        <li><a href="/notes">강의 노트</a></li>
-        <li><a href="/mentoring">멘토링</a></li>
-        <li><a href="/questions">작성한 게시글</a></li>
-    </ul>
-</div>
+
 
 <main>
     <div class="main-header">
@@ -42,25 +23,6 @@
             <li><a href="#" th:href="@{/mypage/certificates}">수강확인증</a></li>
             <li><a href="#" th:href="@{/mypage/completion}">수료증</a></li>
         </ul>
-    </div>
-
-    <div class="filters">
-        <button class="filter-btn">온라인</button>
-        <button class="filter-btn">모임/부트캠프</button>
-        <div class="status-filters">
-            <label><input type="checkbox"/> 학습중</label>
-            <label><input type="checkbox" /> 완강</label>
-            <label><input type="checkbox"/> 수정평 작성 가능</label>
-            <label><input type="checkbox" /> 완료 제외</label>
-        </div>
-    </div>
-
-    <div class="course-list">
-        <div th:each="" class="course-item">
-            <img th:src="" alt="강의 이미지">
-            <h2 th:text="">Spring Introduction</h2>
-            <p th:text="">Linux essentials for developers.</p>
-        </div>
     </div>
 </main>
 

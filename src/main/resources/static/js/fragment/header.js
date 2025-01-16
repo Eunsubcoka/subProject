@@ -1,11 +1,3 @@
-document.querySelector('.unique-dropdown-btn').addEventListener('click', function () {
-    const dropdownContent = document.querySelector('.unique-dropdown-content');
-    if (dropdownContent.style.display === 'block') {
-        dropdownContent.style.display = 'none';
-    } else {
-        dropdownContent.style.display = 'block';
-    }
-});
 
     // 로그아웃 버튼 클릭 시 AJAX 요청
     $('#logoutBtn').on('click', function () {

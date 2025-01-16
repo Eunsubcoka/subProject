@@ -137,7 +137,7 @@ signupForm.addEventListener('submit', (event) => {
                     signupForm.reset();
                     usernameAvailable.textContent = '';
                     usernameError.textContent = '';
-                    location.href = "login.html"; // 로그인 페이지로 리디렉션
+                    location.href = "/login"; // 로그인 페이지로 리디렉션
                 } else {
                     // 서버에서 실패 메시지 처리
                     alert('회원가입에 실패했습니다. 다시 시도해주세요.');
