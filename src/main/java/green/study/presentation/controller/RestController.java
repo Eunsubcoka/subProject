@@ -39,10 +39,12 @@ public class RestController {
         UserRes member = userService.loginUser(user.toUser());
         model.addAttribute("member", member);
         response.addCookie(CookieUtil.createJwtCookie(member.getToken()));
+        response.setStatus(500);
     }
     @PostMapping("/course")
-    public void courses(@RequestParam @Valid CourseReq.create courseReq,
+    public void courses(@RequestBody @Valid CourseReq.Create courseReq,
                         @RequestParam(value = "thumbnail", required = false)MultipartFile file){
+        System.out.println(file.getOriginalFilename());
         courseService.create(courseReq.toCourse(),file);
 
     }

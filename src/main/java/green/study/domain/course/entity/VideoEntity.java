@@ -19,8 +19,9 @@ public class VideoEntity {
     private String originName;
 
     @Column(nullable = false)
-    private Long chapterNo;
+    private Long courseNo;
 
     @Column(nullable = false)
-    private Long thumbnailNo;
+    private Long chapterNo;
+
 }

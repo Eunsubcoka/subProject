@@ -9,7 +9,8 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourseEntity {
+
+public class CourseEntity { // 강의 엔티티 (강의의 전반적인 내용을 담당)
 
     @Id
     @SequenceGenerator(name = "course_seq",sequenceName = "course_seq")
@@ -23,7 +24,11 @@ public class CourseEntity {
     private String description;
 
     @Column(nullable = false)
-    private int price;
+    private String price;
+
+
+
+
 
 
 

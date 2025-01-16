@@ -7,31 +7,35 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "chapter")
+@Table(name = "tag")
 @Builder
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChapterEntity { // 회차 엔티티
+
+public class TagEntity { // 태그 엔티티
+
 
     @Id
-    @Column(nullable = false)
-    private Long courseNo;
-
-    @Column(nullable = false)
-    private Long chapterNo;
+    @SequenceGenerator(name = "tag_seq",sequenceName = "tag_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "tag_seq")
+    private Long tagNo;
 
     @Column(nullable = false)
     private String title;
 
+    // 지칭하는 강의 넘버
     @Column(nullable = false)
-    private String description;
-
-    @Column(nullable = false)
-    private int orderNo;
+    private String courseNo;
 
 
 
 
+
+
+
+
+
+    
 
 }

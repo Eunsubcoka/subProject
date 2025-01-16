@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class Course {
+public class Category {
 
     private long courseNo;
 
@@ -23,6 +23,16 @@ public class Course {
                 .price(price)
                 .description(description)
                 .title(title)
+                .build();
+    }
+
+    public Course From(CourseEntity entity){
+        return Course.builder()
+                .courseNo(entity.getCourseNo())
+                .title(entity.getTitle())
+                .description(entity.getDescription())
+                .userNo(getUserNo())
+                .price(entity.getPrice())
                 .build();
     }
 

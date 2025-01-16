@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class Course {
+public class Tag {
 
     private long courseNo;
 

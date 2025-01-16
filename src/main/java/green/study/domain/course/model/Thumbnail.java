@@ -22,6 +22,7 @@ public class Thumbnail {
 
     private LocalDateTime deleteTime;
 
+    private Long courseNo;
 
 
     public ThumbnailEntity toEntity(){
@@ -30,7 +31,19 @@ public class Thumbnail {
                 .originName(originName)
                 .convertName(convertName)
                 .uploadTime(uploadTime)
+                .courseNo(courseNo)
                 .build();
     }
+
+    public Thumbnail From(ThumbnailEntity entity){
+        return Thumbnail.builder()
+                .thumbnailPath(entity.getThumbnailPath())
+                .originName(entity.getOriginName())
+                .convertName(entity.getConvertName())
+                .uploadTime(entity.getUploadTime())
+                .courseNo(entity.getCourseNo())
+                .build();
+    }
+
 
 }

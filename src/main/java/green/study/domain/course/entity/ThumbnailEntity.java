@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ThumbnailEntity {
+public class ThumbnailEntity { // 강의 썸네일(리스트에 보일 강의 이미지)
 
     @Id
     @SequenceGenerator(name = "thumbnail_seq",sequenceName = "thumbnail_seq")
@@ -36,4 +36,7 @@ public class ThumbnailEntity {
 
     @Column(nullable = true)
     private Date deleteTime;
+
+    @Column(nullable = true)
+    private Long courseNo;
 }

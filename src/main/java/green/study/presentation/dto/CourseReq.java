@@ -10,19 +10,15 @@ public class CourseReq {
 
     @Getter
     @Builder
-    public static class create{
+    public static class Create{
         @NotBlank(message = "강의 이름")
         private String title;
-
-
 
         @NotBlank(message = "강의 설명")
         private String description;
 
         @NotBlank(message = "가격")
-        private int price;
-
-
+        private String price;
 
         public Course toCourse(){
             return Course.builder()
