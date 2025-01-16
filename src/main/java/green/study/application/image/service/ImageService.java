@@ -16,10 +16,12 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class ImageService {
+public class ImageService { // 사이트 내 이미지 서비스 
+    
     private final ThumbnailRepository thumbnailRepository;
 
-    public void createThumbnail(MultipartFile file)throws IOException {
+    // 파일 변환 및 저장
+    public void createThumbnail(MultipartFile file,Long courseNo)throws IOException {
 
         String imagePath =  "C:\\DEV\\DDD_Practice\\web_study\\src\\main\\resources\\static\\images\\thumbnail"; // 프로젝트 루트 경로
 
@@ -43,6 +45,7 @@ public class ImageService {
                 .originName(originName)
                 .convertName(convertName)
                 .uploadTime(LocalDateTime.now())
+                .courseNo(courseNo)
                 .build();
 
 
