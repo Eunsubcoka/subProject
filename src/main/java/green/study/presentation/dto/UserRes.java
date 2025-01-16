@@ -1,6 +1,6 @@
 package green.study.presentation.dto;
 
-import green.study.domain.entity.UserEntity;
+import green.study.domain.user.entity.UserEntity;
 import lombok.Builder;
 import lombok.Getter;
 

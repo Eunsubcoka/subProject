@@ -2,7 +2,7 @@ package green.study.infrastructure.util;
 
 
 
-import green.study.domain.model.User;
+import green.study.domain.user.model.User;
 import io.github.cdimascio.dotenv.Dotenv;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

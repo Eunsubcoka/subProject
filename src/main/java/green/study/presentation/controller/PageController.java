@@ -1,10 +1,8 @@
 package green.study.presentation.controller;
 
-import green.study.domain.model.User;
+import green.study.domain.user.model.User;
 import green.study.infrastructure.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -31,7 +29,7 @@ public class PageController {
         return "member/login";
     }
 
-    @GetMapping("/my/courses")
+    @GetMapping("/myPage")
     public String myPage(@CookieValue(value = "JWT_TOKEN", required = true) final String token,
                          Model model){
 
@@ -43,7 +41,7 @@ public class PageController {
                          Model model){
 
         getTokenAndReturn(token, model);
-        return "member/myCourses";
+        return "course/enroll";
     }
 
     protected void getTokenAndReturn(String token, Model model){
