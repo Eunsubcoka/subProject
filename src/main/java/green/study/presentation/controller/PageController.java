@@ -15,7 +15,9 @@ public class PageController {
     @GetMapping("/")
     public String index(@CookieValue(value = "JWT_TOKEN", required = false) final String token,
                         Model model) {
-        getTokenAndReturn(token, model);
+        if(token != null) {
+            getTokenAndReturn(token, model);
+        }
         return "index";
     }
 
