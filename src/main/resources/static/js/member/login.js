@@ -22,20 +22,21 @@ signupForm.addEventListener('submit', (event) => {
             role: role,
         };
 
-        fetch('/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userData), // 회원가입 데이터를 JSON으로 전송
-            success: function() {
-                location.href = "/";
-            },
-            error: function(err) {
-                console.error("에러 발생:", err);
-                alert("로그인에 실패했습니다.");
-            }
+    fetch('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData), // 회원가입 데이터를 JSON으로 전송
+    })
+        .then(data => {
+            window.location.href = '/'; // 로그인 성공 후 리디렉션
+        })
+        .catch(err => {
+            console.error("에러 발생:", err);
+            alert("로그인에 실패했습니다.");
         });
+
 
 
 });

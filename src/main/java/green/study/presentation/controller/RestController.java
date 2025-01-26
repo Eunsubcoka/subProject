@@ -14,11 +14,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 
 @org.springframework.web.bind.annotation.RestController
@@ -35,17 +34,18 @@ public class RestController {
     }
 
     @PostMapping("/login")
-    public void login(@RequestBody @Valid UserReq.Login user, HttpServletResponse response, Model model) {
+    public ResponseEntity<String> login(@RequestBody @Valid UserReq.Login user, HttpServletResponse response, Model model) {
         UserRes member = userService.loginUser(user.toUser());
         model.addAttribute("member", member);
         response.addCookie(CookieUtil.createJwtCookie(member.getToken()));
-        response.setStatus(500);
+        return ResponseEntity.ok("ok");
     }
     @PostMapping("/course")
-    public void courses(@RequestBody @Valid CourseReq.Create courseReq,
-                        @RequestParam(value = "thumbnail", required = false)MultipartFile file){
-        System.out.println(file.getOriginalFilename());
-        courseService.create(courseReq.toCourse(),file);
+    public void courses(@ModelAttribute("courseData") String courseReq,
+                        @RequestParam(value = "thumbnail", required = false) MultipartFile file) throws IOException {
+
+        // 스트링 타입을 커스리퀘스트 타입으로 형변환
+        //        courseService.create(courseReq.toCourse(), file);
 
     }
     @PostMapping("/logout")
