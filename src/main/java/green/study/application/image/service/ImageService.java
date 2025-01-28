@@ -1,10 +1,8 @@
 package green.study.application.image.service;
 
-import green.study.domain.course.entity.ThumbnailEntity;
-import green.study.domain.course.model.Course;
 import green.study.domain.course.model.Thumbnail;
-import green.study.infrastructure.repository.CourseRepository;
 import green.study.infrastructure.repository.ThumbnailRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,6 +19,7 @@ public class ImageService { // 사이트 내 이미지 서비스
     private final ThumbnailRepository thumbnailRepository;
 
     // 파일 변환 및 저장
+    @Transactional
     public void createThumbnail(MultipartFile file,Long courseNo)throws IOException {
 
         String imagePath =  "C:\\DEV\\DDD_Practice\\web_study\\src\\main\\resources\\static\\images\\thumbnail"; // 프로젝트 루트 경로
@@ -47,7 +46,6 @@ public class ImageService { // 사이트 내 이미지 서비스
                 .uploadTime(LocalDateTime.now())
                 .courseNo(courseNo)
                 .build();
-
 
         thumbnailRepository.save(thumbnail.toEntity());
 

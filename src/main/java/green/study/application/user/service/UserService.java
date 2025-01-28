@@ -5,6 +5,7 @@ import green.study.domain.user.model.User;
 import green.study.infrastructure.repository.UserRepository;
 import green.study.infrastructure.util.JwtUtil;
 import green.study.presentation.dto.UserRes;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,7 @@ public class UserService { // 유저에 관한 서비스
     private final JwtUtil jwtUtil;
 
     // 회원가입
+    @Transactional
     public void registerUser(User user) {
         UserEntity userEntity = userRepository.save(user.toEntity());
         User.from(userEntity);
