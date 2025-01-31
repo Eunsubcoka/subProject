@@ -22,7 +22,7 @@ public class ImageService { // 사이트 내 이미지 서비스
     @Transactional
     public void createThumbnail(MultipartFile file,Long courseNo)throws IOException {
 
-        String imagePath =  "C:\\DEV\\DDD_Practice\\web_study\\src\\main\\resources\\static\\images\\thumbnail"; // 프로젝트 루트 경로
+        String imagePath =  "C:\\DEV\\DDD_Practice\\web_study\\src\\main\\resources\\static\\images\\thumbnail\\"; // 프로젝트 루트 경로
 
         // 파일 저장 경로 설정
         File directory = new File(imagePath);

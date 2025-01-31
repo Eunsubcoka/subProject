@@ -2,10 +2,10 @@ package green.study.presentation.controller;
 
 import green.study.application.course.service.CourseService;
 import green.study.application.user.service.UserService;
+import green.study.domain.user.model.User;
 import green.study.infrastructure.util.CookieUtil;
-import green.study.presentation.dto.CourseReq;
-import green.study.presentation.dto.UserReq;
-import green.study.presentation.dto.UserRes;
+import green.study.infrastructure.util.JwtUtil;
+import green.study.presentation.dto.*;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,8 +18,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
-
+// 태그 및 카테고리를 포함한 프론트 만들기
 @org.springframework.web.bind.annotation.RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -27,6 +28,7 @@ import java.io.IOException;
 public class RestController {
     private final UserService userService;
     private final CourseService courseService;
+    private final JwtUtil jwtUtil;
 
     @PostMapping("/register")
     public void register(@RequestBody @Valid UserReq.Signup user) {
@@ -41,11 +43,16 @@ public class RestController {
         return ResponseEntity.ok("ok");
     }
     @PostMapping("/course")
-    public void courses(@ModelAttribute("courseData") String courseReq,
-                        @RequestParam(value = "thumbnail", required = false) MultipartFile file) throws IOException {
+    public void courses(@CookieValue(value = "JWT_TOKEN", required = true) final String token,
+                        @RequestPart("courseData") CourseReq.Create courseReq,
+                        @RequestPart("categoryData") CategoryReq categoryReq,
+                        @RequestPart("tagData") TagReq tagReq,
+                        @RequestPart(value = "thumbnail", required = false) MultipartFile file) throws IOException {
 
-        // 스트링 타입을 커스리퀘스트 타입으로 형변환
-        //        courseService.create(courseReq.toCourse(), file);
+        User member = jwtUtil.getLoginUserFromAccessToken(token);
+        System.out.println(tagReq.getTags().get(0));
+        courseService.create(courseReq.toCourse(member.getUserNo()),categoryReq.toCategory(),tagReq.getTags(),file);
+
 
     }
     @PostMapping("/logout")

@@ -20,13 +20,13 @@ public class CourseReq {
         @NotBlank(message = "가격")
         private String price;
 
-        public Course toCourse(){
+        public Course toCourse(Long userNo){
             return Course.builder()
                     .title(title)
                     .description(description)
                     .price(price)
+                    .userNo(userNo)
                     .build();
-
         }
     }
 }

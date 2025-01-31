@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class UserEntity {
 
     @Id
-    @SequenceGenerator(name = "user_seq", sequenceName = "user_seq")
+    @SequenceGenerator(name = "user_seq", sequenceName = "user_seq",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     private Long userNo;
 
@@ -31,14 +31,6 @@ public class UserEntity {
     @Column(nullable = false)
     private String role;
 
-
-    // 학생이 수강 신청한 강의 목록
-//    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-//    private List<EnrollmentEntity> enrollments;
-//
-//    // 강사가 등록한 강의 목록
-//    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
-//    private List<CourseEntity> courses;
 
 
 
