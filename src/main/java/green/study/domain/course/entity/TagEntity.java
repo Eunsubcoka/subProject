@@ -15,27 +15,19 @@ import lombok.NoArgsConstructor;
 
 public class TagEntity { // 태그 엔티티
 
-
     @Id
-    @SequenceGenerator(name = "tag_seq",sequenceName = "tag_seq")
+    @SequenceGenerator(name = "tag_seq",sequenceName = "tag_seq",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "tag_seq")
     private Long tagNo;
 
     @Column(nullable = false)
-    private String title;
+    private String name;
 
     // 지칭하는 강의 넘버
     @Column(nullable = false)
-    private String courseNo;
+    private Long courseNo;
 
 
 
-
-
-
-
-
-
-    
 
 }

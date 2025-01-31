@@ -17,15 +17,18 @@ public class CategoryEntity { // 카테고리 엔티티
 
     // 카테고리 넘버
     @Id
-    @SequenceGenerator(name = "category_seq",sequenceName = "category_seq")
+    @SequenceGenerator(name = "category_seq",sequenceName = "category_seq",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "category_seq")
     private Long categoryNo;
 
     // 분류 키
     @Column(nullable = true)
-    private String parantsNo;
+    private Long parentsNo;
 
     @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
+    private Long courseNo;
 
 }

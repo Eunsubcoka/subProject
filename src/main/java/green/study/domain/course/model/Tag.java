@@ -1,28 +1,37 @@
 package green.study.domain.course.model;
 
-import green.study.domain.course.entity.CourseEntity;
+import green.study.domain.course.entity.TagEntity;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Getter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Tag {
+    private Long tagNo;
 
-    private long courseNo;
+    private Long courseNo;
 
-    private String title;
+    private String name;
 
-    private String description;
 
-    private Long userNo;
+    public static TagEntity toTagEntity(Long courseNo, String name){
+        return TagEntity.builder()
+                .name(name)
+                .courseNo(courseNo)
+                .build();
+    }
 
-    private String price;
-
-    public CourseEntity toEntity(){
-        return CourseEntity.builder()
-                .price(price)
-                .description(description)
-                .title(title)
+    public static Tag from(TagEntity tagEntity) {
+        return Tag.builder()
+                .tagNo(tagEntity.getTagNo())
+                .name(tagEntity.getName())
+                .courseNo(tagEntity.getCourseNo())
                 .build();
     }
 

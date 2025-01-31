@@ -1,6 +1,6 @@
 package green.study.domain.course.model;
 
-import green.study.domain.course.entity.CourseEntity;
+import green.study.domain.course.entity.CategoryEntity;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -8,32 +8,29 @@ import lombok.Getter;
 @Builder
 public class Category {
 
-    private long courseNo;
+    private Long categoryNo;
 
-    private String title;
+    private String mainCategoryName;
 
-    private String description;
+    private String subCategoryName;
 
-    private Long userNo;
+    private Long parentsNo;
 
-    private String price;
 
-    public CourseEntity toEntity(){
-        return CourseEntity.builder()
-                .price(price)
-                .description(description)
-                .title(title)
+    public CategoryEntity toMainEntity(Long courseNo){
+        return CategoryEntity.builder()
+                .courseNo(courseNo)
+                .name(mainCategoryName)
+                .parentsNo(null)
+                .build();
+    }
+    public CategoryEntity toSubEntity(Long courseNo,Long parentsNo){
+        return CategoryEntity.builder()
+                .courseNo(courseNo)
+                .name(subCategoryName)
+                .parentsNo(parentsNo)
                 .build();
     }
 
-    public Course From(CourseEntity entity){
-        return Course.builder()
-                .courseNo(entity.getCourseNo())
-                .title(entity.getTitle())
-                .description(entity.getDescription())
-                .userNo(getUserNo())
-                .price(entity.getPrice())
-                .build();
-    }
 
 }

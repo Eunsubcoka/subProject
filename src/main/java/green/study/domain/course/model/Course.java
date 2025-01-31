@@ -23,6 +23,7 @@ public class Course {
                 .price(price)
                 .description(description)
                 .title(title)
+                .userNo(userNo)
                 .build();
     }
 

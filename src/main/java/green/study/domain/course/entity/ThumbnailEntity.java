@@ -18,7 +18,7 @@ import java.util.Date;
 public class ThumbnailEntity { // 강의 썸네일(리스트에 보일 강의 이미지)
 
     @Id
-    @SequenceGenerator(name = "thumbnail_seq",sequenceName = "thumbnail_seq")
+    @SequenceGenerator(name = "thumbnail_seq",sequenceName = "thumbnail_seq",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "thumbnail_seq")
     private Long thumbnailNo;
 
