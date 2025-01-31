@@ -12,7 +12,7 @@
 <body class="bg-light">
 
 <!-- 네비게이션 바 -->
-<div th:insert="/fragment/header.html::fragment-header"></div>
+<div th:insert="~{/fragment/header.html::fragment-header}"></div>
 
 <!-- 강의 등록 카드 -->
 <div class="container mt-5">
@@ -46,11 +46,41 @@
                     <input type="file" class="form-control" id="thumbnail" name="thumbnail" required>
                 </div>
 
+                <!-- 카테고리 선택 -->
+                <div class="mb-3">
+                    <label for="category" class="form-label">카테고리</label>
+                    <select class="form-control" id="category" name="category">
+                        <option value="">대분류 선택</option>
+                        <option value="프로그래밍">프로그래밍</option>
+                        <option value="데이터 사이언스">데이터 사이언스</option>
+                        <option value="비즈니스">비즈니스</option>
+                        <option value="디자인">디자인</option>
+                    </select>
+                </div>
+
+                <!-- 소분류 선택 -->
+                <div class="mb-3">
+                    <label for="subcategory" class="form-label">소분류</label>
+                    <select class="form-control" id="subcategory" name="subcategory">
+                        <option value="">소분류 선택</option>
+                    </select>
+                </div>
+
+                <!-- 태그 입력 -->
+                <div class="mb-3">
+                    <label for="tagInput" class="form-label">태그</label>
+                    <input type="text" class="form-control" id="tagInput" placeholder="Enter 키를 눌러 태그 추가">
+                    <div id="tagContainer" class="mt-2"></div>
+                </div>
+
+
 
                 <!-- 등록 버튼 -->
                 <div class="d-grid">
                     <button type="button" class="btn btn-success" id="submitButton">등록하기</button>
                 </div>
+
+
             </form>
         </div>
     </div>
