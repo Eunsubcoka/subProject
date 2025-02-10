@@ -3,6 +3,8 @@ package green.study.domain.course.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "course")
 @Builder
@@ -28,6 +30,14 @@ public class CourseEntity { // 강의 엔티티 (강의의 전반적인 내용�
 
     @Column(nullable = false)
     private Long userNo;
+
+
+    @Column(nullable = false)
+    private Date createAt;
+
+    @Column(nullable = false)
+    private Long likeCount;
+
 
 
 

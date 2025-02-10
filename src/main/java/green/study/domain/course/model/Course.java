@@ -4,6 +4,8 @@ import green.study.domain.course.entity.CourseEntity;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.Date;
+
 @Getter
 @Builder
 public class Course {
@@ -17,6 +19,11 @@ public class Course {
     private Long userNo;
 
     private String price;
+
+    private Long likeCount;
+
+    private Date createAt;
+
 
     public CourseEntity toEntity(){
         return CourseEntity.builder()
