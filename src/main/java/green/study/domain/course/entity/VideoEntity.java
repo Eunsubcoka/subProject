@@ -1,7 +1,17 @@
 package green.study.domain.course.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name = "Video")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class VideoEntity {
 
     @Id
@@ -10,18 +20,11 @@ public class VideoEntity {
     private Long videoNo;
 
     @Column(nullable = false)
-    private String convertName;
-
-    @Column(nullable = false)
-    private String videoPath;
-
-    @Column(nullable = false)
     private String originName;
 
     @Column(nullable = false)
     private Long courseNo;
 
-    @Column(nullable = false)
-    private Long chapterNo;
+
 
 }

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    let videoData = []; // ✅ 영상 제목을 저장할 배열
+
     $('#submitButton').on('click', function () {
         const courseData = {
             title: $('#title').val(),
@@ -24,7 +26,7 @@ $(document).ready(function () {
         formData.append('categoryData', new Blob([JSON.stringify(categoryData)], { type: "application/json" }));
         formData.append('tagData', new Blob([JSON.stringify(tagData)], { type: "application/json" }));
         formData.append('thumbnail', $('#thumbnail')[0].files[0]);
-
+        formData.append('videoData', new Blob([JSON.stringify(videoData)], { type: "application/json" }))
         $.ajax({
             url: '/api/course',
             method: 'POST',
@@ -67,6 +69,61 @@ document.addEventListener("DOMContentLoaded", function () {
                 option.textContent = sub;
                 subcategorySelect.appendChild(option);
             });
+        }
+    });
+
+
+    // 영상 제목 추가 함수
+    function addVideoTitle() {
+        const videoTitle = $('#videoTitleInput').val().trim();
+
+        if (videoTitle !== "") {
+            // 배열에 추가
+            videoData.push(videoTitle);
+
+            // UI 업데이트
+            updateVideoList();
+
+            // 입력 필드 초기화
+            $('#videoTitleInput').val("");
+        } else {
+            alert("영상 제목을 입력하세요!");
+        }
+    }
+
+    // 리스트 UI 업데이트 함수
+    function updateVideoList() {
+        $('#videoTitleList').empty(); // 기존 목록 초기화
+
+        videoData.forEach((title, index) => {
+            const listItem = $('<li class="list-group-item d-flex justify-content-between align-items-center"></li>')
+                .text(title);
+
+            // 삭제 버튼 추가
+            const deleteButton = $('<button class="btn btn-danger btn-sm">삭제</button>');
+            deleteButton.on('click', function () {
+                removeVideoTitle(index);
+            });
+
+            listItem.append(deleteButton);
+            $('#videoTitleList').append(listItem);
+        });
+    }
+
+    // 영상 제목 삭제 함수
+    function removeVideoTitle(index) {
+        videoData.splice(index, 1); // 배열에서 제거
+        updateVideoList(); // UI 갱신
+    }
+
+    // 버튼 클릭 시 영상 제목 추가
+    $('#addVideoTitleButton').on('click', addVideoTitle);
+
+    // Enter 키 입력 시 영상 제목 추가
+    $('#videoTitleInput').on('keypress', function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            addVideoTitle();
         }
     });
 

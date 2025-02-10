@@ -47,11 +47,11 @@ public class RestController {
                         @RequestPart("courseData") CourseReq.Create courseReq,
                         @RequestPart("categoryData") CategoryReq categoryReq,
                         @RequestPart("tagData") TagReq tagReq,
+                        @RequestPart("tagData") VideoReq videoReq,
                         @RequestPart(value = "thumbnail", required = false) MultipartFile file) throws IOException {
 
         User member = jwtUtil.getLoginUserFromAccessToken(token);
-        System.out.println(tagReq.getTags().get(0));
-        courseService.create(courseReq.toCourse(member.getUserNo()),categoryReq.toCategory(),tagReq.getTags(),file);
+        courseService.create(courseReq.toCourse(member.getUserNo()),categoryReq.toCategory(),tagReq.getTags(),file,videoReq.getVideos());
 
 
     }

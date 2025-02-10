@@ -16,8 +16,8 @@
             <a href="#">커뮤니티</a>
         </nav>
 
-        <button th:if="${member.role == null}" class="login" action="/login">로그인</button>
-        <div th:if="${member.role != null}">
+        <a th:if="${member == null}" class="login" href="/login">로그인</a>
+        <div th:if="${member != null}">
             <div class="unique-dropdown">
                 <button class="unique-dropdown-btn" th:text="${member.userId}">님</button>
                 <div class="unique-dropdown-content">

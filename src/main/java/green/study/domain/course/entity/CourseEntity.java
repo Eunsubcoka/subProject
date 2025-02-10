@@ -2,6 +2,7 @@ package green.study.domain.course.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
@@ -31,11 +32,11 @@ public class CourseEntity { // 강의 엔티티 (강의의 전반적인 내용�
     @Column(nullable = false)
     private Long userNo;
 
-
-    @Column(nullable = false)
+    @CreationTimestamp
+    @Column(nullable = true)
     private Date createAt;
 
-    @Column(nullable = false)
+    @Column(nullable = true,columnDefinition = "BIGINT DEFAULT 0")
     private Long likeCount;
 
 

@@ -1,6 +1,5 @@
 package green.study.presentation.dto;
 
-import green.study.domain.course.model.Tag;
 import lombok.Builder;
 import lombok.Getter;
 
