@@ -49,6 +49,5 @@ public class CourseService {  // 강의에 대한 서비스
 
             imageService.createThumbnail(file, courseEntity.getCourseNo());
 
-            courseRepository.save(course.toEntity());
     }
 }
