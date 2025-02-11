@@ -20,7 +20,7 @@ public class VideoEntity {
     private Long videoNo;
 
     @Column(nullable = false)
-    private String originName;
+    private String title;
 
     @Column(nullable = false)
     private Long courseNo;

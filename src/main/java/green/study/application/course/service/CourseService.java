@@ -43,8 +43,8 @@ public class CourseService {  // 강의에 대한 서비스
             for (String tagName : tag) {
                 Tag.from(tagRepository.save(toTagEntity(courseEntity.getCourseNo(), tagName)));
             }
-            for (String videoName : video){
-                videoRepository.save(toVideoEntity(categoryEntity.getCategoryNo(), videoName));
+            for (String videoTitle : video){
+                videoRepository.save(toVideoEntity(categoryEntity.getCategoryNo(), videoTitle));
             }
 
             imageService.createThumbnail(file, courseEntity.getCourseNo());

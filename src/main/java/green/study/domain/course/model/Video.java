@@ -15,14 +15,14 @@ public class Video {
 
     private Long videoNo;
 
-    private String originName;
+    private String title;
 
     private Long courseNo;
 
-    public static VideoEntity toVideoEntity(Long courseNo, String originName) {
+    public static VideoEntity toVideoEntity(Long courseNo, String title) {
         return VideoEntity.builder()
                 .courseNo(courseNo)
-                .originName(originName)
+                .title(title)
                 .build();
     }
 
