@@ -33,5 +33,16 @@ public class Course {
                 .userNo(userNo)
                 .build();
     }
+    public static Course from(CourseEntity courseEntity){
+        return Course.builder()
+                .courseNo(courseEntity.getCourseNo())
+                .userNo(courseEntity.getUserNo())
+                .title(courseEntity.getTitle())
+                .description(courseEntity.getDescription())
+                .price(courseEntity.getPrice())
+                .likeCount(courseEntity.getLikeCount())
+                .createAt(courseEntity.getCreateAt())
+                .build();
+    }
 
 }

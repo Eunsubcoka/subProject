@@ -48,7 +48,7 @@ public class RestController {
                         @RequestPart("categoryData") CategoryReq categoryReq,
                         @RequestPart("tagData") TagReq tagReq,
                         @RequestPart("tagData") VideoReq videoReq,
-                        @RequestPart(value = "thumbnail", required = false) MultipartFile file) throws IOException {
+                       @RequestPart(value = "thumbnail", required = false) MultipartFile file) throws IOException {
 
         User member = jwtUtil.getLoginUserFromAccessToken(token);
         courseService.create(courseReq.toCourse(member.getUserNo()),categoryReq.toCategory(),tagReq.getTags(),file,videoReq.getVideos());
@@ -65,4 +65,5 @@ public class RestController {
         }
         return ResponseEntity.ok("로그아웃되었습니다.");
     }
+
 }

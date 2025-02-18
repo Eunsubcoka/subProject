@@ -8,16 +8,16 @@ import green.study.domain.course.entity.VideoEntity;
 import green.study.domain.course.model.Category;
 import green.study.domain.course.model.Course;
 import green.study.domain.course.model.Tag;
-import green.study.infrastructure.repository.CategoryRepository;
-import green.study.infrastructure.repository.CourseRepository;
-import green.study.infrastructure.repository.TagRepository;
-import green.study.infrastructure.repository.VideoRepository;
+import green.study.infrastructure.repository.*;
+import green.study.presentation.dto.CourseRes;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static green.study.domain.course.model.Tag.toTagEntity;
@@ -32,6 +32,7 @@ public class CourseService {  // 강의에 대한 서비스
     private final CategoryRepository categoryRepository;
     private final TagRepository tagRepository;
     private final VideoRepository videoRepository;
+    private final ThumbnailRepository thumbnailRepository;
 
     // 강의 생성
     @Transactional
@@ -49,5 +50,17 @@ public class CourseService {  // 강의에 대한 서비스
 
             imageService.createThumbnail(file, courseEntity.getCourseNo());
 
+    }
+
+    public List<CourseRes> newCourse() {
+        List<CourseRes> newCourses = new ArrayList<>();
+        List<CourseEntity> courses = courseRepository.findAll(Sort.by(Sort.Direction.DESC,"createAt"));
+
+        // 수정할 것
+        for (CourseEntity courseEntity : courses) {
+            thumbnailRepository.findAll(courseEntity.getCourseNo());
+            Course course = Course.from(courseEntity);
+            course
+        }
     }
 }
